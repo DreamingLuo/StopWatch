@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StopWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,85 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8i-hR-Hfz">
+                                <rect key="frame" x="0.0" y="20" width="600" height="247"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsi-jK-q0r">
+                                        <rect key="frame" x="517" y="17" width="56" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="iUH-eZ-T6c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86h-cq-Pmq"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCI-xH-9HI">
+                                        <rect key="frame" x="278" y="80" width="45" height="88"/>
+                                        <color key="backgroundColor" red="0.2272492408" green="0.26223865340000002" blue="0.28703926279999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2272492408" green="0.26223865340000002" blue="0.28703926279999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="247" id="gmh-8R-nC4"/>
+                                    <constraint firstItem="aCI-xH-9HI" firstAttribute="centerY" secondItem="S8i-hR-Hfz" secondAttribute="centerY" id="kag-Pb-rvb"/>
+                                    <constraint firstItem="aCI-xH-9HI" firstAttribute="centerX" secondItem="S8i-hR-Hfz" secondAttribute="centerX" id="rYz-1F-nTc"/>
+                                    <constraint firstAttribute="trailing" secondItem="jsi-jK-q0r" secondAttribute="trailing" constant="27" id="yYm-ZU-XUB"/>
+                                    <constraint firstItem="jsi-jK-q0r" firstAttribute="top" secondItem="S8i-hR-Hfz" secondAttribute="top" constant="17" id="zPD-pj-SPq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIh-fR-cLV">
+                                <rect key="frame" x="300" y="267" width="300" height="333"/>
+                                <color key="backgroundColor" red="0.87413862180000002" green="0.77353347669999994" blue="0.62252092380000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="69"/>
+                                <state key="normal" title="✕"/>
+                                <connections>
+                                    <action selector="pauseBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="52c-xV-RcK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9y-PQ-ecN">
+                                <rect key="frame" x="0.0" y="267" width="300" height="333"/>
+                                <color key="backgroundColor" red="0.2015049055" green="1" blue="0.83045509409999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="69"/>
+                                <state key="normal" title="▷">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TjI-ed-uk8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CIh-fR-cLV" firstAttribute="leading" secondItem="c9y-PQ-ecN" secondAttribute="trailing" id="1im-kL-u4c"/>
+                            <constraint firstItem="CIh-fR-cLV" firstAttribute="width" secondItem="c9y-PQ-ecN" secondAttribute="width" id="8Sf-60-IqL"/>
+                            <constraint firstItem="S8i-hR-Hfz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="L45-Gn-2ku"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c9y-PQ-ecN" secondAttribute="bottom" id="P5t-ph-ZWA"/>
+                            <constraint firstItem="S8i-hR-Hfz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Syf-Gg-L5G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S8i-hR-Hfz" secondAttribute="trailing" constant="-20" id="T9g-PV-Sh5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CIh-fR-cLV" secondAttribute="bottom" id="TIv-n1-9qW"/>
+                            <constraint firstItem="c9y-PQ-ecN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="YUe-8i-uY2"/>
+                            <constraint firstItem="CIh-fR-cLV" firstAttribute="top" secondItem="S8i-hR-Hfz" secondAttribute="bottom" id="bLK-o7-Nvi"/>
+                            <constraint firstItem="c9y-PQ-ecN" firstAttribute="top" secondItem="S8i-hR-Hfz" secondAttribute="bottom" id="hbO-mP-K4k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CIh-fR-cLV" secondAttribute="trailing" constant="-20" id="vSF-2w-MPE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TitleLab" destination="aCI-xH-9HI" id="jBW-7O-YWE"/>
+                        <outlet property="pauseBtn" destination="CIh-fR-cLV" id="9FU-yf-tVB"/>
+                        <outlet property="startBtn" destination="c9y-PQ-ecN" id="kNU-lL-2fg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="340" y="418"/>
         </scene>
     </scenes>
 </document>
